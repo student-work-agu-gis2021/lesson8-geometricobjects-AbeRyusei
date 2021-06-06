@@ -38,9 +38,10 @@ def create_line_geom(points):
 
 line1 = None
 # YOUR CODE HERE 3 to define two points and store the result in line1
-pointa = [45.2,22.34]
-pointb = [100.22,-3.20]
+pointa = create_point_geom(45.2,22.34)
+pointb = create_point_geom(100.22,-3.20)
 points=[pointa,pointb]
+print(type(points[0]))
 line1 = create_line_geom(points)
 
 # CODE FOR TESTING YOUR SOLUTION
@@ -72,11 +73,21 @@ except Exception as e:
 
 
 # YOUR CODE HERE 4 to define create_poly_geom()
-
+def create_poly_geom(coords):
+    assert type(coords) == list, "Input should be a list!"
+    assert len(coords)>=3, "Polygon object requires at least three Points!"
+  
+    poly = Polygon(coords)
+    return poly
 # Demonstrate the usage of the function. For example, create a Polygon with three points: `(45.2, 22.34)`, `(100.22, -3.20)` & `(70.0, 10.20)`.
 
 # YOUR CODE HERE 5 to define poly1 with three points
-poly1 = 0
+a=create_point_geom(45.2,22.34)
+b=create_point_geom(100.22,-3.20)
+c=create_point_geom(70.0,10.20)
+d=(a,b,c)
+coords = list(d)
+poly1 = create_poly_geom(coords)
 
 # CODE FOR TESTING YOUR SOLUTION
 print(poly1)
